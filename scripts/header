@@ -1,0 +1,11 @@
+#!/usr/bin/gawk -f
+
+BEGIN {
+	FS="\t";
+}
+{
+	for (i=1;i<=NF;i++) {
+		print $i, "\t", (i-1);
+	}
+	exit;
+}
