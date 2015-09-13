@@ -4,6 +4,7 @@ if [ ! -d "$DIGAL" ]; then
 	sudo mkdir -p $DIGAL
 fi
 
+sed --in-place=.bak '/digital_alexandria/d' ~/.zshrc
 export PATH="$DIGAL:$PATH"
 echo "export PATH=$DIGAL:$PATH" >> ~/.zshrc
 
