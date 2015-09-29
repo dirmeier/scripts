@@ -1,1 +1,2 @@
-echo $PWD/$1
+PATH=$(readlink -f $1)
+echo $PATH
