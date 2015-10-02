@@ -3,8 +3,12 @@ if [ ! -d "$DIGAL" ]; then
 	echo "Creating directory: $DIGAL"
 	sudo mkdir -p $DIGAL
 fi
+if [ "$(uname)" == "Darwin" ]; then
+ 	sed -i '' '/digital_alexandria/d' ~/.zshrc 
+else   
+	sed --in-place=.bak '/digital_alexandria/d' ~/.zshrc
+fi
 
-sed --in-place=.bak '/digital_alexandria/d' ~/.zshrc
 export PATH="$DIGAL:$PATH"
 echo "export PATH=$DIGAL:$PATH" >> ~/.zshrc
 
