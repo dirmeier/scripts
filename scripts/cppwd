@@ -1,0 +1,5 @@
+if [ $# -ne 0  ]; then
+ echo $1 | pbcopy
+else
+  echo $PWD | pbcopy
+fi
