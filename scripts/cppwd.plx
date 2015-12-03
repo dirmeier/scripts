@@ -1,0 +1,4 @@
+#!/usr/bin/perl
+
+use Cwd 'abs_path';
+print (($ARGV[0]) ? (abs_path($ARGV[0]), "\n") : `pwd`);
