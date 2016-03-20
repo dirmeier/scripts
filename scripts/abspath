@@ -1,2 +1,6 @@
-PATH=$(readlink -f $1)
+if [ "$(uname)" == "Darwin" ]; then
+  PATH=$(greadlink -f $1)
+else
+  PATH=$(readlink -f $1)
+fi
 echo $PATH
