@@ -1,13 +1,13 @@
 <h1 align="center"> unix-tools </h1>
 
-Some utility unix scripts for command line.
+Some command line scripts.
 
 ## Installation
  
 Install `unix-tools` using:
 
 ```{sh}
-  sudo ./make.sh
+  sudo ./init.sh
 ```
 
 from the command-line.
