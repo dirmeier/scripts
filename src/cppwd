@@ -1,1 +1,3 @@
-cppwd.plx $1
+#!/bin/bash
+
+./cppwd.plx $1
