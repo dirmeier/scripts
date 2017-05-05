@@ -1,0 +1,21 @@
+#!/usr/bin/env gawk -f
+
+BEGIN {
+  if (ARGC < 1) {
+    printf("USAGE:\n")
+    printf("regsort -v R=<regex> <file>\n")
+    printf("\tE.g.: regsort -v R='^_(\\w+):.*' /etc/passwd\n")
+  }
+}
+{
+  if (match($0, R "$", a))
+  {
+    hash[a[1]] = $0
+  }
+}
+END {
+  n=asorti(hash, sorted)
+  for (i = 1; i <= n; i++) {
+    print hash[sorted[i]]
+  }
+}
