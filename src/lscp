@@ -7,6 +7,7 @@ then
    echo "Examples:"
    echo -e "\tlscp euler /user/bla/bla 5"
    echo -e "\tlscp user@euler /user/bla/bla 5"
+   echo
    exit
 fi
 
