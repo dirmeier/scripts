@@ -1,1 +1,4 @@
+#!/usr/bin/env bash
+
 lssub.py $1 $2
+

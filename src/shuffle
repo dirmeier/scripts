@@ -40,3 +40,4 @@ function unchanged(s1, s2,    count, len) {
 	}
 	return count
 }
+
