@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [[ $# != 4  ]]
+if [[ $# != 3 ]]
 then
    echo -e "\nUSAGE:"
    echo "lscp <server> <directory> <latest x files>"
@@ -15,5 +15,10 @@ server=$1
 dir=$2
 lat=$3
 
-scp $server:/$dir/$(ssh $server 'ls -rt $dir | tail -n $lat') .
+echo "Copying latest $lat fukes from $server/$dir"
+for i in $(ssh $server "ls -rt $dir | tail -n $lat")
+do
+  scp $server:$dir/$i .
+done
+
 
