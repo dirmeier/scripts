@@ -1,0 +1,17 @@
+#!/bin/bash
+
+if [[ $# != 4  ]]
+then
+   echo -e "\nUSAGE:"
+   echo "lscp <server> <directory> <latest x files>"
+   echo "Examples:"
+   echo -e "\tlscp euler /user/bla/bla 5"
+   echo -e "\tlscp user@euler /user/bla/bla 5"
+   exit
+fi
+
+server=$1
+dir=$2
+lat=$3
+
+scp $server:/$dir/$(ssh $server 'ls -rt $dir | tail -n $lat') .
