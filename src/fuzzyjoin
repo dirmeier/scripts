@@ -10,14 +10,10 @@ BEGIN {
 {
   if (match($0, R "$", a))
   {
-    hash[a[1]NR]  = $0
+    hash[a[1]] = $0
   }
 }
 END {
-  if (length(hash) == 0) {
-    print "error: no match with regex"
-    exit
-  }
   n=asorti(hash, sorted)
   for (i = 1; i <= n; i++) {
     print hash[sorted[i]]
