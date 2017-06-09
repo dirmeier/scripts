@@ -1,22 +1,36 @@
 #!/usr/bin/env gawk -f
 
 BEGIN {
-  if (ARGC < 1) {
+  if (ARGC < 2)
+  {
     printf("USAGE:\n")
-    printf("regsort -v R=<regex> <file>\n")
-    printf("\tE.g.: regsort -v R='^_(\\w+):.*' /etc/passwd\n")
+    printf("fuzzyjoin -v R=<regex> a=<column f1> b=<col f2> <f1> <f2>\n")
+    printf("\tE.g.: fuzzyjoin -v R='^_(\\w+):.*' a=1 b=3 /etc/hosts /etc/hosts \n")
+    exit
   }
+}
+NR==FNR {
+  if (match($a, R "$", ar))
+  {
+    s = $a
+    gsub(ar[1], "", s)
+    hash[s NR] = $0
+  }
+  next;
 }
 {
-  if (match($0, R "$", a))
+  if (match($b, R "$", ar))
   {
-    hash[a[1]] = $0
+    s = $b
+    gsub(ar[1], "", s)
+    for (key in hash)
+    {
+      gr = key
+      gsub(/[0-9]+$/, "", gr)
+      if (gr == s)
+      {
+        print $0, hash[key]
+      }
+    }
   }
 }
-END {
-  n=asorti(hash, sorted)
-  for (i = 1; i <= n; i++) {
-    print hash[sorted[i]]
-  }
-}
-
