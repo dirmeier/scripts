@@ -1,13 +1,13 @@
-<h1 align="center"> unix-tools </h1>
+# Command line tools
 
-Some command line scripts.
+Some command line tools.
 
 ## Installation
  
-Install `unix-tools` using:
+Install `simtools` using:
 
-```{sh}
-  sudo ./init.sh
+```sh
+  conda install simtools -c dirmeier
 ```
 
 from the command-line.

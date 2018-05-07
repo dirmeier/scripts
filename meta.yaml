@@ -1,0 +1,30 @@
+{% set name = "simtools" %}
+{% set version = "0.0.1" %}
+
+
+package:
+  name: "{{ name|lower }}"
+  version: {{ version }}
+
+source:
+  path: ./scripts  
+
+build:
+  number: 0
+
+requirements:
+  run:
+    - gawk
+    - python
+    - perl
+
+test:
+  commands:
+    - tree
+
+about:
+  home: http://github.com/dirmeier/scripts
+  license: GPL3
+  license_file: LICENSE
+  summary: 'A collection of cli tools'
+  dev_url: http://github.com/dirmeier/scripts
