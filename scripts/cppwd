@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env perl
 
-./cppwd.plx $1
-
+use Cwd 'abs_path';
+print (($ARGV[0]) ? (abs_path($ARGV[0]), "\n") : `pwd`);
