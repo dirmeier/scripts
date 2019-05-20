@@ -1,0 +1,15 @@
+#!/usr/bin/env gawk -f
+
+BEGIN { 
+	OFS=FS	
+}
+{
+	printf "%s%s", (FNR>1 ? OFS : ""), $ARGIND 
+}
+ENDFILE {
+    print ""
+    if (ARGIND < NF) {
+        ARGV[ARGC] = FILENAME
+        ARGC++
+    }
+}
